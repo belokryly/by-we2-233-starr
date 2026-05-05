@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="format-detection" content="telephone=no, address=no, email=no, date=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
 <title>233 Starr Karaoke & Eats — Brooklyn's Premier Karaoke Lounge</title>
 <meta name="description" content="Brooklyn's premier karaoke lounge & private rooms. Daily specials, Starr Packs, Happy Hour, K-Pop. Reserve your night at 233 Starr St." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -331,6 +333,15 @@
     align-items: center;
     gap: 0.6rem;
   }
+  /* Force every node inside the marquee to use the marquee's own dark text color.
+     This kills iOS's auto-blue phone-number detection and keeps the bar visually clean. */
+  .marquee-track,
+  .marquee-track * {
+    color: inherit !important;
+    text-decoration: none !important;
+    -webkit-text-fill-color: currentColor;
+  }
+  .marquee-track a { cursor: pointer; }
   .marquee-track svg {
     width: 11px; height: 11px;
     flex-shrink: 0;
@@ -710,6 +721,14 @@
     overflow-y: auto;
   }
   .mobile-menu.open { transform: translateX(0); }
+  /* Push the menu below the Back-to-Guide bar so it doesn't cover it */
+  body.has-back-bar .mobile-menu {
+    top: var(--back-bar-h, 38px);
+    height: calc(100dvh - var(--back-bar-h, 38px));
+  }
+  body.has-back-bar .mobile-menu-overlay {
+    top: var(--back-bar-h, 38px);
+  }
 
   /* Decorative gold accents inside the panel */
   .mobile-menu::before {
@@ -3133,7 +3152,7 @@
     <span><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/></svg> Sunday $7 Cocktails</span>
     <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 L14.5 9 L23 9 L16 14 L18.5 22 L12 17 L5.5 22 L8 14 L1 9 L9.5 9 Z"/></svg> 13 Private Rooms</span>
     <span><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/></svg> K-Pop Machine</span>
-    <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 L14.5 9 L23 9 L16 14 L18.5 22 L12 17 L5.5 22 L8 14 L1 9 L9.5 9 Z"/></svg> Reserve Now · 929-210-8687</span>
+    <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 L14.5 9 L23 9 L16 14 L18.5 22 L12 17 L5.5 22 L8 14 L1 9 L9.5 9 Z"/></svg> Reserve Now · <a href="tel:9292108687" x-apple-data-detectors="false">929-210-8687</a></span>
     <!-- Duplicate for seamless loop -->
     <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 L14.5 9 L23 9 L16 14 L18.5 22 L12 17 L5.5 22 L8 14 L1 9 L9.5 9 Z"/></svg> Brooklyn's #1 Karaoke Lounge</span>
     <span><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/></svg> Open till 2 AM Fri/Sat</span>
@@ -3141,7 +3160,7 @@
     <span><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/></svg> Sunday $7 Cocktails</span>
     <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 L14.5 9 L23 9 L16 14 L18.5 22 L12 17 L5.5 22 L8 14 L1 9 L9.5 9 Z"/></svg> 13 Private Rooms</span>
     <span><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/></svg> K-Pop Machine</span>
-    <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 L14.5 9 L23 9 L16 14 L18.5 22 L12 17 L5.5 22 L8 14 L1 9 L9.5 9 Z"/></svg> Reserve Now · 929-210-8687</span>
+    <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 L14.5 9 L23 9 L16 14 L18.5 22 L12 17 L5.5 22 L8 14 L1 9 L9.5 9 Z"/></svg> Reserve Now · <a href="tel:9292108687" x-apple-data-detectors="false">929-210-8687</a></span>
   </div>
 </div>
 
